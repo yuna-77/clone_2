@@ -9,7 +9,19 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="shortcut icon" href="http://wylie.co.kr/assets/img/common/pavicon.gif" type="image/x-icon">
+<link rel="manifest" href="manifest.json">
 <link rel="stylesheet" href="css/style.css">
+<script type="module">
+	if("serviceWorker" in navigator){
+		navigator.serviceWorker.register("pwabuilder-sw.js")
+		.then(function(registration){
+			// console.log("Service Worker Success", registration);
+		})
+		.catch(function(error){
+			// console.error("Service Worker Fail", error);
+		});
+	}
+	</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
 <script>
 window.addEventListener("load", function(){
