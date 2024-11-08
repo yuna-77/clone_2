@@ -1,14 +1,21 @@
+<<<<<<< HEAD
 @charset "utf-8";
 
 * {
 	box-sizing: border-box;
 }
+=======
+>>>>>>> origin/main
 body, h1, h2, h3, h4, h5, h6, p, ul, ol, table, dl, dd {
 	margin: 0;
 	padding: 0;
 }
 h1 {
+<<<<<<< HEAD
 	font-size: 16px;
+=======
+	font-size: 1em;
+>>>>>>> origin/main
 }
 a {
 	text-decoration: none;
@@ -23,6 +30,7 @@ img {
 	border: none;
 }
 body {
+<<<<<<< HEAD
 	font-family: "Open Sans", "Noto Sans KR", sans-serif;
 }
 body.static { /* Javascript Interaction */
@@ -666,11 +674,581 @@ section .title p .br {
 		margin-left: calc((100% - 168px)/2);
 		margin-right: 0;
 		width: 168px;
+=======
+	line-height: 1;
+	font-family: "Open Sans", "Noto Sans KR", sans-serif;
+}
+body.fixed {
+	overflow-y: hidden;
+	position: fixed;
+	/* top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%; */
+}
+
+#start {
+	position: relative;
+}
+#start header {
+	position: absolute;
+	top: 0; 
+	left: 0;
+	z-index: 1001;
+	width: 100%;
+}
+#start .header-inner {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 auto;
+	max-width: 940px;
+	height: 4.375em;
+}
+
+#start .header-inner .header-logo a img{
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+#desktop ul {
+	display: flex;
+	align-items: center;
+	gap: 2.625em;
+}
+#desktop ul li {
+	position: relative;
+}
+#desktop ul li a {
+	display: block;
+	line-height: 4.286em;
+	font-size: 1em;
+	font-weight: 700;
+	color: #fff;
+	transition: color 0.3s;
+}
+#desktop ul li:hover a, 
+#desktop ul li.active a {
+	font-weight: 700;
+	color: #9154a2;
+} 
+#desktop ul li:hover a::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background-color: #9154a2;
+	transition: width 150ms;
+}
+#start .tab {
+	display: none;	
+	position: absolute;
+	top: 20px;
+	right: 25px;
+	z-index: 1001;
+	text-indent: -9999px;	
+	width: 1.5em;
+	height: 1.375em;
+	background: url(../images/ico_tab_open.png) no-repeat 0 0;
+	background-size: cover; 
+}
+#start .tab.close { /*close를 클래스로 추가111*/
+	background: url(../images/ico_tab_close.png) no-repeat 0 0;
+	background-size: cover;
+}
+
+/* nav #mobile */
+#mobile {
+	display: none; 
+	width: 240px;
+	height: 100vh;
+	position: fixed;
+	/*뷰포트(브라우저 창)에 고정.스크롤을 해도 요소의 위치는 변하지 않고, 항상 지정한 위치에 유지*/
+	top: 0; 
+	right: -240px; 
+	/*화면 밖으로 보내놓을수있다. 자바스크립트에서 240만큼 옯겨 놓으면 뿅하고 나타나게 된다.*/
+	z-index: 5000;
+	background-color: #fff;
+}
+/* -> GSAP로 대신함
+#mobile.active { 
+	display: block;
+}
+*/
+#mobile ul {
+	padding: 27px 20px 0;
+	height: 70vh;
+}
+#mobile ul li {
+	position: relative;
+	padding: 22px 0 ;
+	text-align: left;
+}
+#mobile ul li::before {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	content: "";
+	width: 100%;
+	height: 1px;
+	background-color: #dddddd;
+}
+#mobile ul li a {
+	display: block;
+	font-weight: 600;
+	color: #61459a;
+}
+
+.dim { /*z-index를 header(부모)보다 낮게 설정해야 함*/
+	display: none;
+    position: fixed;
+    top: 0;
+    left: 0; 
+	z-index: 1000;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.dim.active {
+	display: block;
+}
+
+/*slider*/
+#start .slider { /*나중에 스와이퍼를 움직여야하고 지금 키비쥬얼 잡아야해서 position: relative;*/
+	position: relative;
+	top: 0;	
+	height: 70vh; /*80vh*/
+	min-height: 37.5em; /*650px*/ /*어느정도 줄었을때 높이를 유지해야해서*/
+}
+#start .slider .keyvisual {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 1000;
+	text-align: center;
+	transform: translate(-50%,-50%);
+}
+#start .slider .keyvisual span {
+	display: block;
+	font-size: 2.3vw; 
+	color: #fff;
+	padding: 0 0 15px 0; 
+}
+#start .slider .keyvisual strong {
+	display: block;
+	line-height: 1.3;
+	font-size: 2.8vw; /*vw계산-화면크기가 변하면서 폰트 크기도 바뀌어야해서*/
+	font-kerning: normal;
+	letter-spacing: 3px;
+	color: #fff;
+	padding-top: 25px;
+	overflow: hidden;  
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+#start .slider .keyvisual .button {
+	display: inline-block;
+	margin-top: 55px;
+	padding: 26px 90px;
+	font-weight: 700;
+	color: #fff;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	box-sizing: border-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	transition: 0.3;
+}
+#start .slider .keyvisual .button:hover {
+	display: inline-block;
+	margin-top: 55px;
+	padding: 26px 90px;
+	font-weight: 700;
+	color: rgba(14, 15, 33, 0.8);
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	box-sizing: border-box;
+} 
+#start .slider img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+@media only screen and (max-width: 1240px){
+	#start .slider .keyvisual span {
+		font-size: 1.625em;
+	}
+	#start .slider .keyvisual strong {
+		font-size: 2.125em;
+	}
+} /*940에서 줄일때 너무 폰트가 작게 나오니까 임시로 잡아주는 용도 입닏.*/
+@media only screen and (max-width: 940px){
+	#start .header-inner {
+		padding: 0 25px;
+	}
+	#desktop ul {
+		gap: 2em;
+	}
+	#desktop ul li a {
+		font-size: 0.9375em;
+	}
+	#start .slider .keyvisual .button {
+		padding: 20px 65px;
+	}
+	start .slider .keyvisual .button:hover {
+		padding: 20px 65px;
+	}
+}
+@media only screen and (max-width: 720px){
+	#start .header-inner {
+		padding: 0 25px;
+	}
+	#desktop ul li a {
+		font-size: 0.875em;
+	}
+	#desktop ul {
+		display: none;
+	}
+	#start .tab { /**/
+		display: block;
+	}
+	#mobile {
+		display: block;
+	}
+}
+@media only screen and (max-width: 460px){ /*moblie*/	
+	#start .tab { /**/
+		display: block;
+	}
+	#mobile {
+		display: block;
+	}
+}
+
+/*common*/
+section .title {
+	margin-bottom: 84px;
+	text-align: center;
+}
+section .title h2 {
+	font-size: 2.25em; 
+	font-weight: 700;
+	letter-spacing: 1px;
+	padding-bottom: 18px;
+}
+section .title p {
+	font-size: 0.875em;
+	line-height: 1.5;
+	color: #777;
+	white-space: pre-line;
+}
+
+/* #page1 */
+#page1 {
+	padding: 6.25em 0 3.125em 0; /*100px 0 50px 0;*/
+}
+#page1 .business {
+	max-width: 940px;
+	margin: 0 auto;
+}
+#page1 .content ul {
+	display: flex;
+	justify-content: space-between;
+}
+#page1 .content ul li {
+	padding: 0 3.125em; /*em*/
+}
+
+#page1 .content .photo {
+	display: flex;
+	align-items: center;
+	margin: 0 auto;
+	max-width: 75px; 
+	height: 75px;
+	overflow: hidden;
+	border-radius: 50%;
+	border: 3px solid #61459a;
+}
+#page1 .content .photo img {
+	display: block;
+	width: 85%;
+	height: 85%;
+	object-fit: cover;
+	margin: 0 auto
+}
+
+#page1 .content .desc {
+	display: block;
+	text-align: center;
+	padding: 30px 0;
+}
+#page1 .content .desc strong {
+	display: block;
+	font-size: 1.125em;
+	font-weight: 700;
+	line-height: 1;
+	padding-bottom: 30px;
+	overflow: hidden;  
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+#page1 .content .desc span {
+	display: block;
+	font-size: 0.875em;
+	line-height: 1.7;
+	color: #777;
+	overflow: hidden;  
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+
+@media only screen and (max-width: 940px){
+	#page1 .content ul {
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+	}
+}
+/* #page2 */
+#page2 {
+	padding: 6.25em 0 9.375em 0; /*100px 0 150px 0*/
+	background-color: #f7f7f7;
+}
+#page2 .portfolio {
+	max-width: 940px;
+	margin: 0 auto;
+}
+
+#page2 .portfolio .content ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 30px;
+}
+#page2 .portfolio .content ul li {
+	width: calc((100% - 3.75em)/3);
+}
+
+#page2 .portfolio .content .photo {
+	position: relative;
+    overflow: hidden; 
+	display: block;
+}
+#page2 .portfolio .content .photo::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(145, 84, 162, 0.5); 
+	opacity: 0;
+	transition: filter 0.3s ease;;
+}
+#page2 .portfolio .content .photo:hover::after {
+	opacity: 1;
+}
+#page2 .portfolio .content .photo img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: filter 0.3s ease;
+}
+
+#page2 .portfolio .content .desc {
+	padding: 17px 40px;
+	box-sizing: border-box;
+	margin: 0 auto;
+	text-align: center;
+	background-color: #fff;
+}
+#page2 .portfolio .content .desc strong {
+	display: block;
+	font-size: 1.125em;
+	font-weight: 700;
+	line-height: 1.8;
+    overflow: hidden;  
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+#page2 .portfolio .content .desc span {
+	display: block;
+	font-size: 0.875em;
+	line-height: 1.5;
+	color: #777;
+    overflow: hidden;  
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+
+@media only screen and (max-width: 940px){
+	/*#page inner에 해당하는 곳에 패딩 주는 중*/
+	#page2 .portfolio {
+		padding: 0 25px;
+	}
+	#page2 .portfolio .content ul {
+		gap: 1.675em;
+	}
+}
+@media only screen and (max-width: 720px){
+	#page2 .portfolio .content ul li {
+		width: calc((100% - 30px)/2);
+	}
+	#page2 .portfolio .content .desc strong {
+		font-size: 1.0625em;
+	}
+}
+@media only screen and (max-width: 460px) {
+	#page2 .portfolio .content ul li {
+		width: calc(100% / 2);
+		margin: 0 auto;
+	}
+}
+/* #page3 */
+#page3 {
+	padding: 9.375em 0 12.5em 0; /*150px 0 200px 0*/
+}
+#page3 .culture { /*inner*/
+	max-width: 940px;
+	margin: 0 auto;	
+}
+#page3 .culture .content ul {
+	display: flex;
+	flex-direction: column;
+	gap: 5em; /*em*/
+}
+#page3 .culture .content ul li a {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#page3 .culture .content ul li a::after {
+	content: "";
+	height: 100%;
+	width: 2px;
+	position: absolute;
+	top: 100%; /*가상 요소의 상단을 부모 요소의 아래쪽 가장자리에 위치시킵니다.*/
+	left: 50%;
+	z-index: 0;
+	background-color: #dddddd;
+}
+#page3 .culture .content ul li:last-child a::after {
+	display: none;
+} 
+#page3 .culture .content ul li a .photo  { 
+	max-width: 185px;
+	max-height: 185px;
+	overflow: hidden;
+	border-radius: 50%;
+	border: 7px solid #dddddd;
+}
+#page3 .culture .content ul li a .photo img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* #page3 .culture .content ul li a .desc {
+	width: 35%;
+} */
+#page3 .culture .content ul li:nth-child(odd) .desc {
+	position: absolute;
+	right: 64%;
+	text-align: right;
+}
+#page3 .culture .content ul li:nth-child(even) .desc {
+	position: absolute;
+	right: 15px;
+}
+#page3 .culture .content .desc strong {
+	display: block;
+	font-size: 1.125em;
+	font-weight: 700;
+	line-height: 1.3;
+	overflow: hidden;  
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+#page3 .culture .content .desc p {
+	display: block;
+	font-size: 0.875em;
+	line-height: 1.5;
+	color: #777;
+	padding-top: 20px;
+	overflow: hidden;  
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+
+@media screen and (max-width: 940px){
+	#page3 .culture {
+		padding: 0 25px;
+	}
+	#page3 .culture .content ul li a {
+		justify-content: flex-start;
+	}
+	#page3 .culture .content ul li a::after {
+		left: 10.3%; 
+	}
+	#page3 .culture .content ul li:nth-child(odd) .desc {
+		width: 72.5%; /**/
+		left: 26%; /**/
+        text-align: left;
+	}
+	#page3 .culture .content ul li:nth-child(even) .desc {
+		left: 26%;
+	}
+	#page3 .culture .content .desc p {
+		display: flex;
+		white-space: pre-line;
+	}
+	#page3 .culture .content .desc p br {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 720px){
+	#page3 {
+		padding: 6.875em 0 12.5em 0;
+	}
+	#page3 .culture .content ul li a::after {
+		left: 13.8%;
+	}
+	#page3 .culture .content ul li:nth-child(odd) .desc {
+		width: 65%; /**/
+        left: 33%; /**/
+	}
+	#page3 .culture .content ul li:nth-child(even) .desc {
+		left: 33%; /**/
+	}
+}
+@media screen and (max-width: 460px) {
+	#page3 .culture .content .desc p {
+		display: none;
+	}
+	#page3 .culture .content ul li a::after {
+		left: 22.2%; 
+	}
+	#page3 .culture .content ul li:nth-child(odd) .desc {
+        left: 52%; /**/
+	}
+	#page3 .culture .content ul li:nth-child(even) .desc {
+		left: 52%; /**/
+>>>>>>> origin/main
 	}
 }
 
 /* page4 */
 #page4 {
+<<<<<<< HEAD
 	padding-top: 120px;
 	overflow: hidden;
 	background-color: #f9f9f9;
@@ -779,12 +1357,112 @@ section .title p .br {
 		padding: 0 0 120px;
 	}
 	#page4 .signature {
+=======
+	padding-top: 125px; /*em*/
+	background-color: #f7f7f7;
+}
+#page4 .awards {
+	max-width: 940px;
+	margin: 0 auto;
+}
+#page4 .awards .content ul {
+	display: flex;
+	justify-content: space-between;
+	gap: 30px;
+}
+
+#page4 .awards .content .photo {
+	max-width: 240px; /*vw*/
+	max-height: 240px; /*vh*/
+	overflow: hidden;
+	border-radius: 50%;
+	border: 7px solid #fff;
+}
+#page4 .awards .content .photo img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+#page4 .awards .content .desc {
+	padding-top: 20px;
+	text-align: center;
+}
+#page4 .awards .content .desc strong {
+	display: block;
+	font-size: 1.125em;
+	font-weight: 700;
+	line-height: 1.5;
+	padding-bottom: 10px;
+	overflow: hidden;  
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+#page4 .awards .content .desc span {
+	display: block;
+	font-size: 0.875em;
+	line-height: 1.7;
+	color: #777;
+	overflow: hidden;  
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+
+#page4 .signature_banner {
+	background-color: #fff;
+	align-content: center;
+	margin-top: 7.5em; /*em*/
+}
+#page4 .signature_banner .banner_inner {
+	max-width: 940px;
+	margin: 0 auto;
+}
+#page4 .signature_banner .banner_inner ul {
+	display: flex;
+	flex-wrap: wrap;
+}
+#page4 .signature_banner .banner_inner ul a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@media screen and (max-width: 940px){
+	#page4 .awards {
+		padding: 0 25px;
+	}
+	#page4 .signature_banner .banner_inner ul {
+		width: 80%;
+		margin: 0 auto;
+	}
+
+}
+@media screen and (max-width: 720px){
+	#page4 .awards .content ul {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	#page4 .awards .content a {
+		display: block;
+		padding-bottom: 50px;
+	}
+	#page4 .signature_banner .banner_inner ul {
+		width:  calc(100% / 2);
+		justify-content: space-between;
+	}
+}
+
+@media screen and (max-width: 460px) {
+	#page4 .signature_banner {
+>>>>>>> origin/main
 		display: none;
 	}
 }
 
 /* page5 */
 #page5 {
+<<<<<<< HEAD
 	padding: 110px 0 115px;
 	overflow-x: hidden;
 	background: #150333 url(../images/contact_background.jpg) no-repeat center center;
@@ -978,3 +1656,191 @@ section .title p .br {
 .dim.active { /* JavaScript Interaction */
 	display: block;
 }
+=======
+	padding: 120px 0 80px 0; /*em*/
+	background: url(../images/contact_background.jpg) no-repeat 0 0; /*url은.. 넣어주기*/
+	background-size: cover;
+}
+
+#page5 .contact_form {
+	max-width: 940px;
+	margin: 0 auto;
+}
+#page5 .contact_form .title {
+	color: #fff;
+}
+#page5 .contact_form .title p {
+	color: #fff;
+}
+#page5 .contact_form .content .form {
+	display: flex;
+	gap: 20px;
+	padding-bottom: 26px;
+}
+#page5 .contact_form .content .left {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	width: calc((100% - 20px)/2);
+}
+#page5 .contact_form .content .left input.name,
+#page5 .contact_form .content .left input.email,
+#page5 .contact_form .content .left input.subject {
+	display: flex;
+}
+#page5 .contact_form .content #message {
+	width: calc((100% - 20px)/2);
+}
+#page5 .contact_form .content .button {
+	padding-top: 26px;
+	text-align: center;
+}
+/*common*/
+::placeholder {
+	color: #dddddd;
+}
+input[type="name"],
+input[type="email"],
+input[type="text"] {
+	padding: 0 19px; /*입력 창 안쪽 양옆 크기 주기*/
+	height: 50px; /*vh*/ /*개인 부피라서 잡아도 되지만*/
+	width: 100%;
+	/*중요*/
+	border: 1px solid #777;
+	border-radius: 5px;
+	box-sizing: border-box;
+	font-family: "Open Sans", sans-serif;
+	font-weight: 600;
+	outline: none;
+    overflow: hidden;  
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+textarea { /*여기서 높이 잡지 말것*/
+	padding: 13px 19px;
+	width: 100%;
+	font-family: "Open Sans", sans-serif;
+	font-weight: 600;
+	border: 1px solid #777;
+	border-radius: 5px;
+	box-sizing: border-box;
+	/*중요 - 화면에서 크기가 고정됨 늘림표시가 나타나지 않음*/
+	resize: none; /*textarea + resize none*/
+	outline: none;
+	overflow: hidden;  
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+input[type="submit"] {
+	padding: 26px 63px ;
+	background-color: #61459a;
+	color: #fff;
+	font-size: 0.875em;
+	font-weight: 700;
+	line-height: 1em;
+	border: none;
+	border-radius: 5px; 
+    white-space: nowrap;
+    text-overflow: ellipsis;
+	cursor: pointer;
+}
+
+@media screen and (max-width: 940px){
+	#page5 {
+		padding: 120px 0 100px 0;
+	}
+	#page5 .contact_form {
+		padding: 0 25px;
+	}
+	#page5 .contact_form .content .form {
+		flex-direction: column;
+		align-items: center;
+	}
+	#page5 .contact_form .content .left {
+		width: 100%;
+	}
+	#page5 .contact_form .content #message {
+		width: 100%;
+		height: 150px;
+		/* padding-bottom: 100px; */
+	}
+}
+
+/* footer */
+footer {
+	padding: 30px 0;
+}
+footer .footer_inner {
+	display: flex;
+	max-width: 940px;
+	margin: 0 auto;
+}
+footer .footer_inner .left {
+	padding-right: 20px;
+}
+footer .footer_inner .left span {
+	font-size:  0.875em;
+	font-weight: 600;
+	line-height: 2.2;
+	margin-right: 10px;
+	overflow: hidden;  
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+footer .footer_inner .right ul {
+	display: flex;
+	gap: 0.4375em; /*7px*/
+}
+footer .footer_inner .right ul li a {
+	font-size: 2em;
+	border-radius: 50%;
+}
+
+@media screen and (max-width: 940px){
+	footer .footer_inner{
+		padding: 0 25px;
+	}
+	footer .footer_inner .left span {
+		display: inline-block;
+		white-space: pre-line;
+	}
+}
+
+@media screen and (max-width: 720px){
+	footer .footer_inner {
+		flex-direction: column;
+	}
+	footer .footer_inner .left {
+		width: 90%;
+	}
+	footer .footer_inner .right ul {
+		margin-top: 10px;
+	}
+}
+
+@media screen and (max-width: 460px) {
+	footer .footer_inner {
+		align-items: center;
+		text-align: center;
+	}
+}
+
+/* top_button -> script from.to써서 "scroll"한다면(if) "visable"하게(if/else) 표현*/
+.top_button {
+	position: fixed;
+	bottom: 20px; 
+	right: 20px;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	width: 25px;
+	height: 25px;
+	padding: 20px;
+	border: none;
+	border-radius: 50%;
+	background-color: #61459a;
+	color: #fff;
+	font-weight: 700;
+	cursor: pointer;
+}
+>>>>>>> origin/main
